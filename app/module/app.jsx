@@ -18,7 +18,9 @@ export default class AppView extends Component {
         render() {
             return (
                 <div>
-                    this is app !!!
+                    <div style={{width:"100%",height:"50px",backgroundColor:"red",color:"white"}}>
+                        this is app !!!公共头
+                    </div>
                     <div>
                         {this.props.children}
                     </div>

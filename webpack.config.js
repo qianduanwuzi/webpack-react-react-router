@@ -23,7 +23,7 @@ module.exports={
   },
   
   output:{
-    path: path.join(__dirname, "test"),
+    path: path.join(__dirname, "build"),
     filename:"bundle.js", //打包后的js文件名
     // publicPath: '',
     // chunkFilename: "[name].min.js"    // require.ensure 按需加载的时候  输出名称
