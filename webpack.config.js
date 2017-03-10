@@ -1,35 +1,30 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin"); // 然后这个插件会自动将js中的css文件提取出来，生成单独的文件
 var HtmlWebpackPlugin = require('html-webpack-plugin');  // html处理
-var path = require("path");
+var path = require("path"); //path为node自带
 module.exports={
   devtool:"eval-source-map", //生成source Maps
-  //入口文件 __dirname是node的全局变量,位当前脚本所在的目录
   //Hot Module Replacement（热加載）
-  //打包后输出文件的目录
   // entry:['webpack/hot/dev-server',
   //       __dirname + "/app/main.js",
   //       ],
-
-  entry:{
+  entry:{ //入口文件 __dirname是node的全局变量,位当前脚本所在的目录
     app: './app/main.js',
     // m: './web/main.js',
-    //添加要打包在vendeors里面的库   目的是将用到的jquery 等第三方库整合到一个文件
-    vendor: [
+    vendor: [  //添加要打包在vendeors里面的库   目的是将用到的jquery 等第三方库整合到一个文件
         'react',
         'react-dom',
         "jquery"
       ]
   },
-  
-  output:{
-    path: path.join(__dirname, "build"),
+  output:{  //打包后输出文件
+    path: path.join(__dirname, "build"), //打包后输出文件的目录
     filename:"bundle.js", //打包后的js文件名
     // publicPath: '',
     // chunkFilename: "[name].min.js"    // require.ensure 按需加载的时候  输出名称
   },
   module:{
-    //loaders加载器
+    //loaders加载器,webpack只认识js文件,编译各种类型文件以便浏览器解析
         loaders: [
             {
                 test: /\.(js|jsx)$/,//一个匹配loaders所处理的文件的拓展名的正则表达式，这里用来匹配js和jsx文件（必须）
@@ -49,27 +44,25 @@ module.exports={
                 loader: 'url?limit=10000&name=fonts/[hash:8].[name].[ext]'
             },
             
-            { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]' }) },
+            { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]' }) },//jsx-className
         ]
   },
 
   plugins: [
-        //页面可使用下列jquery属性
-        new webpack.ProvidePlugin({
+        new webpack.ProvidePlugin({ //页面可使用下列jquery属性
             $ : "jquery",
             jQuery : "jquery",
             "window.jQuery" : "jquery"
         }),
         new webpack.HotModuleReplacementPlugin(),//热模块替换插件
-        new ExtractTextPlugin("[name].css"),//目前是app下,所以打包后统一将项目中的.css编译到app.css中
-        //把入口文件里面的vendor(第三方依赖)数组打包成vendors.js
-        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js' }),
+        new ExtractTextPlugin("[name].css"),//目前是app下,所以打包后统一将项目中的.css编译到app.css中,然后在index.html引入
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js' }),   //把入口文件里面的vendor(第三方依赖)数组打包成vendors.js，然后在index.html引入
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
             }
-        }), //压缩代码 这里使用webpack的内置的插件
-        new HtmlWebpackPlugin({
+        }), 
+        new HtmlWebpackPlugin({   //压缩代码 这里使用webpack的内置的插件
             filename: 'index.html',
             template: './index.html', //模板
             // favicon:"favicon.ico",
@@ -87,9 +80,5 @@ module.exports={
     //     inline: true,//设置为true，当源文件改变时会自动刷新页面
     //     port: 3000,//设置默认监听端口，如果省略，默认为"8080"
     // },
-
-
-
-
 
 }
