@@ -1,11 +1,12 @@
 import IndexView from '../module/component1.jsx'
 import App from '../module/app.jsx';
+import DaoHangView from '../module/daohang/daohang.jsx';
 export default{
     path: '/',
     component: App,
-    // indexRoute: {
-    //     component: IndexView
-    // },
+    indexRoute: {
+        component: IndexView
+    },
     childRoutes: [
         {
             path: 'index',
@@ -14,6 +15,13 @@ export default{
             onEnter: function(nx,re){
                 document.title = this.name
             }
-        },
+        },{
+            path: 'daohang',
+            component: DaoHangView,
+            name:'导航',
+            onEnter: function(nx,re){
+                document.title = this.name
+            }
+        }
     ]
 }
