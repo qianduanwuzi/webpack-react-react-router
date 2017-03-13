@@ -61,4 +61,17 @@
 
 .components__tuozhuai___1HZoo{
     font-size: 2.0rem;
+}.daohang__panel___3-b7J {
+    position: absolute;
+    background-color: white;
+    max-height: 90%;
+    overflow-y: auto;
+    top: 100px;
+    right: 490px;
+    width: 280px;
+}
+
+.daohang__container___3jrxO{
+    width:300px; 
+    height: 180px;
 }
