@@ -1,0 +1,14 @@
+.panel {
+    position: absolute;
+    background-color: white;
+    max-height: 90%;
+    overflow-y: auto;
+    top: 100px;
+    right: 490px;
+    width: 280px;
+}
+
+.container{
+    width:300px; 
+    height: 180px;
+}
