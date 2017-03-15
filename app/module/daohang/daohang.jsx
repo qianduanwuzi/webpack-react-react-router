@@ -12,10 +12,12 @@ export default class DaohangView extends Component {
             // daohang.getAmapLocation('江苏省苏州市月亮湾路10号慧湖大厦');
             let dh = new daohang();
             console.log(dh);
-            dh.init("container", {});
-            dh.map.plugin(["AMap.ToolBar"], function() {
-                dh.map.addControl(new AMap.ToolBar());
-            });
+            dh.init("container", {},'全国',500);
+            // dh.initGeocoder('全国',500);
+            // dh.geocoder('江苏省苏州市月亮湾路10号慧湖大厦');
+            // dh.map.plugin(["AMap.ToolBar"], function() {
+            //     dh.map.addControl(new AMap.ToolBar());
+            // });
 
             // 江苏省苏州市月亮湾路10号慧湖大厦
         //    var map = new AMap.Map("container", {
