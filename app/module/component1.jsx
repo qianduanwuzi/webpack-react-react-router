@@ -16,11 +16,19 @@ export default class Component1 extends React.Component{
         }
     };
     componentDidMount(){
+        // var zi = 'abcd';
+        // for(let i of zi){
+        //     console.log(i)
+        // }
         $(this.refs.kuang).hide();
     };
-    handleMouseOver(){
+    //es6写法
+    handleMouseOver = () =>{
         $(this.refs.kuang).fadeIn(1000);
-    };
+    }
+    // handleMouseOver(){
+    //     $(this.refs.kuang).fadeIn(1000);
+    // };
     handleMouseOut(){
         this.setState({hasExperience:true})
         $(this.refs.kuang).fadeOut(1000);
