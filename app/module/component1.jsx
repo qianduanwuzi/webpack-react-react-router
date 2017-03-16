@@ -6,6 +6,7 @@ import Params from './config.js';
 import Component2 from './component2.jsx';
 import InnerStyle from './innerStyle.jsx';
 import Ondragevent from './ondragevent.jsx';
+import { DatePicker } from 'antd';
 export default class Component1 extends React.Component{
     constructor(props) {
         super(props);
@@ -46,7 +47,7 @@ export default class Component1 extends React.Component{
                         <div className={css.cover}></div>
                         <div className={css.detail}>
                             <div className={css.inside}>
-                                <p><label className={css.label}>姓名 :</label><span>{one.name}</span></p>
+                                <p><label className={css.label}>姓名 </label><span>{one.name}</span></p>
                                 <p><label className={css.label}>年龄 :</label><span>{one.age}</span></p>
                                 <p><label className={css.label}>地址 :</label><span>{one.address}</span></p>
                                 <p><label className={css.label}>职业 :</label><span>{one.work}</span></p>
