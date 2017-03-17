@@ -2,6 +2,7 @@ import IndexView from '../module/component1.jsx'
 import App from '../module/app.jsx';
 import DaoHangView from '../module/daohang/daohang.jsx';
 import Ant1View from '../module/ant/ant1.jsx';
+import ReduxDemo from '../module/redux/index.jsx';
 export default{
     path: '/',
     component: App,
@@ -27,6 +28,13 @@ export default{
             path: 'ant1',
             component: Ant1View,
             name:'ant1',
+            onEnter: function(nx,re){
+                document.title = this.name
+            }
+        },{
+            path: 'redux1',
+            component: ReduxDemo,
+            name:'reduxDemo1',
             onEnter: function(nx,re){
                 document.title = this.name
             }

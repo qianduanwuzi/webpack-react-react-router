@@ -4,7 +4,7 @@
   "description": "this is made by wuzi",
   "main": "index.js",
   "scripts": {
-    "build": "webpack-dev-server --progress --colors"
+    "build": "webpack --color --progress && node production.js"
   },
   "author": "wuzi",
   "license": "ISC",
@@ -28,10 +28,14 @@
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.2",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.1",
+    "webpack-hot-middleware": "^2.17.1"
   },
   "devDependencies": {
+    "antd": "^2.8.1",
     "babel-loader": "^6.3.2",
+    "babel-plugin-import": "^1.1.1",
     "babel-plugin-react-transform": "^2.0.2",
     "babel-preset-stage-0": "^6.22.0",
     "css-loader": "^0.26.2",
@@ -42,6 +46,8 @@
     "html-webpack-plugin": "^2.28.0",
     "image-webpack-loader": "^3.2.0",
     "jsx-loader": "^0.13.2",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
     "react-router": "^3.0.2",
     "react-transform-hmr": "^1.0.4",
     "sass-loader": "^6.0.2",
