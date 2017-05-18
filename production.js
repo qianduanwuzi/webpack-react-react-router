@@ -1,28 +1,17 @@
-var express = require('express')
-var webpack = require('webpack')
-var path = require("path")
-var app = express()
-var port = 3000
+var config = require("./webpack.config.js");
+var webpack = require('webpack');
+var WebpackDevServer = require('webpack-dev-server');
 
-var WebpackDevMiddleware = require('webpack-dev-middleware')
-var WebpackHotMiddleware = require('webpack-hot-middleware')
-var config = require('./webpack.config.js')
-var compiler = webpack(config)
+config.entry.app.unshift("webpack-dev-server/client?http://localhost:7777/");
 
-
-app.use(express.static(path.join(__dirname, 'build')));
-app.use(WebpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath,
-  stats: { colors: true }
-}));
-app.use(WebpackHotMiddleware(compiler));
-app.get('/*',function(request,response){
-    if(request.url.indexOf(".") == -1) {
-            response.sendFile(path.resolve(__dirname, 'build', "index.html"))
+var compiler = webpack(config);
+var server = new WebpackDevServer(compiler, {
+    publicPath: config.output.publicPath,
+    stats: {
+        colors: true,
     }
-})
-
-var server = app.listen(port,function(){
-    console.log('listening at http://localhost:' + port )
-})
+});
+server.listen(7777, function(){
+    console.log('listening at http://localhost:7777');
+});
 

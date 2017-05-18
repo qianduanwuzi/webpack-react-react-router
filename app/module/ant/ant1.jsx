@@ -31,7 +31,7 @@ export default class Antd1View extends React.Component{
                     <div style={{ marginTop: 20 }}>当前日期：{date}</div>
                     <div className={css.mycheck}>  
                         <input type="checkbox" name="check1" value="check1" id="check1" />
-                        <label for="check1"></label>
+                        <label htmlFor="check1"></label>
                     </div>
                 </div>
             )

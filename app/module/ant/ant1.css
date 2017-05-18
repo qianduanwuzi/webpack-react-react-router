@@ -72,8 +72,8 @@
 	text-align: center;
 	line-height: 17px;
     /*height: 16px;*/
-    /*width: 16px;*/
-    /*background: url('../../image/small_checkbox.png');*/
-    /*background-position: 0px  0px;*/
-    background-color: red;
+    width: 16px;
+    background: url('../../image/small_checkbox.png');
+    background-position: 0px  0px;
+    /*background-color: red;*/
 }

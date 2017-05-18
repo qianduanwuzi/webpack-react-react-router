@@ -8,11 +8,11 @@ export default class DaohangView extends Component {
             }
         };
         componentDidMount(){
-            console.log('daogangpageiscoming')
+            // console.log('daogangpageiscoming')
             // daohang.getAmapLocation('江苏省苏州市月亮湾路10号慧湖大厦');
-            let dh = new daohang();
-            console.log(dh);
-            dh.init("container", {},'全国',500);
+            // let dh = new daohang();
+            // console.log(dh);
+            // dh.init("container", {},'全国',500);
             // dh.initGeocoder('全国',500);
             // dh.geocoder('江苏省苏州市月亮湾路10号慧湖大厦');
             // dh.map.plugin(["AMap.ToolBar"], function() {
@@ -20,20 +20,20 @@ export default class DaohangView extends Component {
             // });
 
             // 江苏省苏州市月亮湾路10号慧湖大厦
-        //    var map = new AMap.Map("container", {
-        //         resizeEnable: true
-        //     });
-        //     AMap.service(["AMap.PlaceSearch"], function() {
-        //         var placeSearch = new AMap.PlaceSearch({ //构造地点查询类
-        //             pageSize: 5,
-        //             pageIndex: 1,
-        //             city: "010", //城市
-        //             map: map,
-        //             panel: "panel"
-        //         });
-        //         //关键字查询
-        //         placeSearch.search('苏州大学');
-        //     }); 
+           var map = new AMap.Map("container", {
+                resizeEnable: true
+            });
+            AMap.service(["AMap.PlaceSearch"], function() {
+                var placeSearch = new AMap.PlaceSearch({ //构造地点查询类
+                    pageSize: 5,
+                    pageIndex: 1,
+                    city: "010", //城市
+                    map: map,
+                    panel: "panel"
+                });
+                //关键字查询
+                placeSearch.search('苏州大学');
+            }); 
 	    };
 
         componentWillMount() {
