@@ -9,7 +9,8 @@ var server = new WebpackDevServer(compiler, {
     publicPath: config.output.publicPath,
     stats: {
         colors: true,
-    }
+    },
+    historyApiFallback: true
 });
 server.listen(7777, function(){
     console.log('listening at http://localhost:7777');
