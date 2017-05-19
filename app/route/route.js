@@ -2,12 +2,12 @@ import IndexView from '../module/component1.jsx'
 import App from '../module/app.jsx';
 import DaoHangView from '../module/daohang/daohang.jsx';
 import Ant1View from '../module/ant/ant1.jsx';
-import ReduxDemo from '../module/redux/index.jsx';
+import ReduxDemo from '../module/redux/demo/demo1.jsx';
 export default{
     path: '/',
     component: App,
     indexRoute: {
-        component: IndexView
+        component: ReduxDemo
     },
     childRoutes: [
         {

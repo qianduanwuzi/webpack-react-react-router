@@ -3,19 +3,26 @@ import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import routes from './route/route.js'
 import {render} from 'react-dom';
-// import createStore from './reducers/creatReducer';
+import createStore from './module/redux/reducer/createReducer.js';
 // var Component1 = require('./components/Component1.jsx');
 // import Component1 from './module/Component1.jsx';
 
-// let reduxState;
+let reduxState= {};
 // if (window.__REDUX_STATE__) {
 // 	try {
 // 		reduxState = __REDUX_STATE__;
 // 		__REDUX_STATE__ = {};
 // 	} catch (e) {}
 // }
-// const store = createStore(reduxState);
+const store = createStore(reduxState);
 
-render((
-   <Router  history={browserHistory} routes={routes} />
-), document.getElementById('root'))
+// render((
+//    <Router  history={browserHistory} routes={routes} />
+// ), document.getElementById('root'))
+
+render(
+    <Provider store={store}>
+        <Router history={browserHistory} routes={routes} />
+    </Provider>
+    ,document.getElementById('root')
+)
